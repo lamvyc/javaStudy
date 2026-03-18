@@ -177,7 +177,7 @@
 **完整示例：**
 ```bash
 # 一键编译并运行
-./build.sh && ./run.sh collections
+./build.sh && ./run.sh basics
 ```
 
 ### 方法二：使用命令行手动编译
@@ -221,7 +221,7 @@ java -cp out/production/javaStudy javaBasic.basics.BasicSyntaxDemo
    - 理解List、Set、Map的区别
    - 练习各种遍历方式
 
-4. **第8天-第9天**: `./run.sh lambda` - Lambda和Stream
+4. **第7天-第8天**: `./run.sh lambda` - Lambda和Stream
    - Java 8核心特性
    - 从简单的Lambda开始
    - 逐步掌握Stream API
@@ -351,7 +351,7 @@ javaStudy/
 │   │   ├── basics/                           # 基础语法
 │   │   │   └── BasicSyntaxDemo.java
 │   │   ├── collections/                      # 集合框架
-│   │   │   └── CollectionDemo.java
+│   │   │   └── CollectionDemo.java          # 集合框架示例
 │   │   ├── lambda/                           # Lambda和Stream
 │   │   │   └── LambdaStreamDemo.java
 │   │   ├── oop/                              # 面向对象
