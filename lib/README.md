@@ -20,8 +20,17 @@
 
 ## 💡 使用方法
 
-在DatabaseDemo.java中，已经配置好H2数据库连接：
+### 在MySQLBasicsDemo.java中（推荐）
+重点学习SQL能力和表设计：
+```java
+// H2内存数据库连接（兼容MySQL语法）
+String url = "jdbc:h2:mem:testdb;MODE=MySQL";
+String user = "sa";
+String password = "";
+```
 
+### 在DatabaseDemo.java中（参考）
+完整的JDBC操作和事务演示：
 ```java
 // H2内存数据库连接（兼容MySQL语法）
 String url = "jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1";

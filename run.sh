@@ -15,17 +15,20 @@ if [ $# -eq 0 ]; then
     echo ""
     echo "【Java进阶 - javaAdvanced】"
     echo "  7. threading      - 多线程（Thread、线程池、synchronized、Lock）"
-    echo "  8. jvm            - JVM基础（内存模型、垃圾回收、类加载）"
+    echo "  8. jvm            - JVM基础（详细版，完整演示）"
+    echo "  8-new. jvmnew     - JVM新模板版（5秒速记+实战）⭐推荐"
     echo "  9. reflection     - 反射与注解（Class、反射创建对象、注解解析）"
     echo "  10. generics      - 泛型（泛型类、泛型方法、泛型接口）"
     echo "  11. annotation    - 注解（自定义注解、元注解、运行时注解）"
     echo ""
     echo "【数据库 - javaMysql】"
-    echo "  12. database      - 数据库（SQL、JOIN、事务、索引、JDBC）"
+    echo "  12. mysql         - MySQL与MyBatis（SQL能力+表设计）⭐推荐"
+    echo "  13. database      - 数据库详细示例（JDBC操作参考）"
     echo ""
     echo "用法: ./run.sh [类名]"
     echo "示例: ./run.sh collections"
-    echo "示例: ./run.sh threading"
+    echo "示例: ./run.sh jvmnew"
+    echo "示例: ./run.sh mysql"
     echo "示例: ./run.sh database"
     exit 0
 fi
@@ -64,8 +67,12 @@ case "$1" in
         java -cp "$CP" javaAdvanced.threading.ThreadDemo
         ;;
     jvm)
-        echo "🚀 运行 JVMDemo..."
+        echo "🚀 运行 JVMDemo（详细版）..."
         java -cp "$CP" javaAdvanced.jvm.JVMDemo
+        ;;
+    jvmnew)
+        echo "🚀 运行 JVMNewDemo（新模板版）⭐..."
+        java -cp "$CP" javaAdvanced.jvm.JVMNewDemo
         ;;
     reflection)
         echo "🚀 运行 ReflectionAnnotationDemo..."
@@ -79,8 +86,12 @@ case "$1" in
         echo "🚀 运行 AnnotationDemo..."
         java -cp "$CP" javaAdvanced.annotation.AnnotationDemo
         ;;
+    mysql)
+        echo "🚀 运行 MySQLBasicsDemo（推荐）..."
+        java -cp "out/production/javaStudy:lib/h2.jar" javaMysql.MySQLBasicsDemo
+        ;;
     database)
-        echo "🚀 运行 DatabaseDemo..."
+        echo "🚀 运行 DatabaseDemo（参考）..."
         java -cp "out/production/javaStudy:lib/h2.jar" javaMysql.DatabaseDemo
         ;;
     *)

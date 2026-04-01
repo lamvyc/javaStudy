@@ -74,7 +74,7 @@
 - **线程状态和生命周期**
 - **java.util.concurrent 包** - 并发工具类
 
-### 8️⃣ src/javaAdvanced/jvm/JVMDemo.java - JVM基础
+### 8️⃣ src/javaAdvanced/jvm/JVMDemo.java - JVM基础（详细版）
 - **JVM内存模型** - 堆、栈、方法区、程序计数器
 - **垃圾回收机制** - GC算法和分代收集
 - **类加载机制** - 加载、验证、准备、解析、初始化
@@ -83,6 +83,20 @@
 - **内存管理** - 对象分配和回收
 - **JVM参数** - 常用配置参数
 - **类初始化顺序** - 静态变量、静态块、实例变量、构造函数
+
+### 8️⃣-New src/javaAdvanced/jvm/JVMNewDemo.java - JVM学习【新模板版】⭐
+- **【0. 5秒速记卡】** - 复习神器，5秒回忆核心内容
+  - ① 本质：JVM = 帮你管内存的管家（自动垃圾回收）
+  - ② 场景：内存溢出时排查问题
+  - ③ 代码：Runtime API（totalMemory/freeMemory）
+  - ④ 坑：内存泄漏（对象用完没释放引用）
+  - ⑤ 面试：内存结构（堆、栈、方法区）
+- **前端视角理解** - JS类比JVM（浏览器 vs JVM）
+- **核心用法（3个）** - 查看内存、触发GC、堆栈区别
+- **实战案例** - 内存监控API（完整前后端代码）
+- **Spring Boot落地** - 系统监控接口实现
+- **常见坑+面试** - 内存泄漏、面试高频题（含项目答案）
+- **特点**：按照新模板设计，一个认知+一个代码+一个场景
 
 ### 9️⃣ src/javaAdvanced/reflection/ReflectionAnnotationDemo.java - 反射与注解
 - **Class 类** - 获取Class对象的三种方式
@@ -121,20 +135,39 @@
 
 ### 📙 数据库部分（javaMysql）
 
-### 1️⃣2️⃣ src/javaMysql/DatabaseDemo.java - 数据库基础（重点）
+### 1️⃣2️⃣ src/javaMysql/MySQLBasicsDemo.java - MySQL与MyBatis（重点）⭐
+- **前端视角理解** - SQL = JS数组操作（map/filter → SELECT/WHERE）
+- **SQL核心能力（9个）** - 最重要的技能
+  - 基础查询：SELECT、WHERE条件、ORDER BY排序、LIMIT分页
+  - 聚合函数：COUNT、SUM、AVG、MAX、MIN
+  - 分组查询：GROUP BY、HAVING
+  - **多表关联：INNER JOIN、LEFT JOIN（⭐⭐⭐最重要）**
+  - 子查询：WHERE子查询、IN子查询
+  - 增删改：INSERT、UPDATE、DELETE
+- **表设计（6大原则）** - 非常重要
+  - 实体识别：电商系统需要哪些表
+  - 字段设计：INT/VARCHAR/DECIMAL/TIMESTAMP选择
+  - 主键设计：为什么用自增ID
+  - 外键关联：如何实现表之间的关系
+  - 表关系类型：一对多/多对多/一对一
+  - **数据库三范式：1NF/2NF/3NF（⭐重要）**
+- **MyBatis核心用法**
+  - MyBatis vs JDBC对比
+  - 注解方式：@Select、@Insert、@Update、@Delete
+  - XML方式：动态SQL、复杂查询
+  - MyBatis-Plus：自动CRUD
+- **性能优化** - 索引、慢查询、批量操作、事务
+- **实战案例** - 电商系统表设计 + 多表JOIN查询
+- **常见坑** - N+1查询、SELECT *、忘记索引、JOIN过多
+- **面试高频** - 索引原理、JOIN区别、三范式、慢查询优化
+
+### 1️⃣3️⃣ src/javaMysql/DatabaseDemo.java - 数据库详细示例（参考）
 - **H2内存数据库** - 无需安装MySQL，兼容MySQL语法
-- **SQL基础查询** - SELECT、WHERE、ORDER BY、LIMIT
-- **条件查询** - AND、OR、LIKE、IN、BETWEEN
-- **JOIN连接查询** - INNER JOIN、LEFT JOIN、多表连接
-- **GROUP BY分组** - COUNT、SUM、AVG、MAX、MIN、HAVING
-- **子查询** - WHERE子查询、FROM子查询、EXISTS子查询
-- **主键和外键** - 唯一标识和引用完整性
-- **索引** - 创建索引、索引的作用和代价
-- **事务** - ACID特性、提交、回滚
-- **数据库三范式** - 规范化设计原则
-- **JDBC操作** - Connection、Statement、PreparedStatement
+- **学生选课系统** - 完整的表设计和数据操作
+- **JDBC详细操作** - Connection、Statement、PreparedStatement
+- **事务演示** - 银行转账场景（提交/回滚）
 - **防止SQL注入** - PreparedStatement的使用
-- **数据库设计实践** - 学生-班级-课程选课系统
+- **数据库设计实践** - 学生-班级-课程-选课系统
 
 ## 🚀 如何运行
 
@@ -165,13 +198,15 @@
 
 # 运行指定的类（Java进阶）
 ./run.sh threading     # 运行多线程示例
-./run.sh jvm           # 运行JVM基础示例
+./run.sh jvm           # 运行JVM基础示例（详细版）
+./run.sh jvmnew        # 运行JVM新模板版（推荐）⭐
 ./run.sh reflection    # 运行反射与注解示例
 ./run.sh generics      # 运行泛型示例
 ./run.sh annotation    # 运行注解示例
 
 # 运行指定的类（数据库）
-./run.sh database      # 运行数据库示例
+./run.sh mysql          # 运行MySQL与MyBatis学习（推荐）⭐
+./run.sh database       # 运行数据库详细示例（参考）
 ```
 
 **完整示例：**
@@ -275,19 +310,31 @@ java -cp out/production/javaStudy javaBasic.basics.BasicSyntaxDemo
    - 了解注解的实际应用场景
    - 注解是框架开发的核心技术
 
-#### 🎯 阶段三：数据库（7天）
+#### 🎯 阶段三：数据库（7-10天）⭐⭐⭐
 
-12. **第34天-第40天**: `./run.sh database` - 数据库基础（必学）
-   - ⭐ 必须掌握：SELECT、WHERE、ORDER BY、LIMIT
-   - ⭐ 必须掌握：JOIN连接查询（INNER JOIN、LEFT JOIN）
-   - ⭐ 必须掌握：GROUP BY分组和聚合函数
-   - 理解子查询的使用场景
-   - 掌握主键、外键、索引的概念
-   - 理解事务的ACID特性
-   - 学会使用JDBC操作数据库
-   - 使用PreparedStatement防止SQL注入
-   - 理解数据库三范式设计原则
-   - 数据库是后端开发的核心技能
+12. **第34天-第43天**: `./run.sh mysql` - MySQL与MyBatis（必学）
+   - ⭐⭐⭐ **SQL能力（最重要）**：
+     - 必须掌握：SELECT、WHERE、ORDER BY、LIMIT
+     - 必须掌握：JOIN连接查询（INNER JOIN、LEFT JOIN）
+     - 必须掌握：GROUP BY分组和聚合函数
+     - 理解子查询的使用场景
+   - ⭐⭐⭐ **表设计（非常重要）**：
+     - 实体识别：如何识别需要哪些表
+     - 字段设计：选择合适的数据类型
+     - 主键外键：理解表之间的关系
+     - 数据库三范式：规范化设计
+   - ⭐⭐ **MyBatis**：
+     - 理解ORM框架的作用
+     - 掌握注解方式（@Select/@Insert）
+     - 了解XML配置方式
+     - 学习MyBatis-Plus简化开发
+   - ⭐ **性能优化**：
+     - 创建索引提高查询速度
+     - 避免N+1查询问题
+     - 使用EXPLAIN分析SQL
+   - **推荐**：先学习SQL和表设计，这是基础
+   - **推荐**：多练习JOIN查询，这是面试高频考点
+   - **推荐**：完成后到LeetCode刷50道SQL题巩固
 
 ### 实践建议：
 
@@ -328,19 +375,23 @@ System.out.println("执行到这里了");
 - ✅ 自定义注解和运行时处理
 - ✅ 理解主流框架的底层原理
 
-### 完成数据库部分后（1个案例），你将掌握：
-- ✅ SQL查询语句（增删改查）
-- ✅ 多表连接和复杂查询
-- ✅ 数据库设计和优化
-- ✅ JDBC编程和事务管理
+### 完成数据库部分后（2个案例），你将掌握：
+- ✅ **SQL核心能力**（SELECT/WHERE/JOIN/GROUP BY）- 最重要
+- ✅ **表设计能力**（主键外键、三范式、表关系）- 非常重要
+- ✅ **MyBatis使用**（注解方式、XML配置、动态SQL）
+- ✅ **多表JOIN查询**（用户订单商品关联查询）
+- ✅ **性能优化**（索引、慢查询优化、N+1问题）
+- ✅ **JDBC编程**（Connection、PreparedStatement、事务）
 - ✅ 可以设计和操作关系型数据库
+- ✅ 可以用MyBatis简化数据库开发
 
-完成所有12个案例后，你将具备扎实的Java核心技能，可以：
+完成所有13个案例后，你将具备扎实的Java核心技能，可以：
 - 🚀 独立开发完整的后端项目
+- 🚀 设计数据库表结构并编写复杂SQL
 - 🚀 学习Spring、Spring Boot、MyBatis等主流框架
 - 🚀 应对大部分Java后端面试题
 - 🚀 进行性能优化和问题排查
-- 🚀 设计和实现数据库应用
+- 🚀 使用MyBatis进行数据库开发
 
 ## 📂 项目结构
 
@@ -365,7 +416,8 @@ javaStudy/
 │   │   ├── threading/                        # 多线程
 │   │   │   └── ThreadDemo.java
 │   │   ├── jvm/                              # JVM基础
-│   │   │   └── JVMDemo.java
+│   │   │   ├── JVMDemo.java                 # JVM详细示例（参考）
+│   │   │   └── JVMNewDemo.java              # JVM新模板版（推荐）⭐
 │   │   ├── reflection/                       # 反射与注解
 │   │   │   └── ReflectionAnnotationDemo.java
 │   │   ├── generics/                         # 泛型
@@ -373,7 +425,8 @@ javaStudy/
 │   │   └── annotation/                       # 注解（深入）
 │   │       └── AnnotationDemo.java
 │   └── javaMysql/                            # 数据库
-│       └── DatabaseDemo.java                 # 数据库综合示例
+│       ├── MySQLBasicsDemo.java              # MySQL与MyBatis（推荐）⭐
+│       └── DatabaseDemo.java                 # 数据库详细示例（参考）
 ├── lib/                                      # 第三方库
 │   └── h2.jar                                # H2数据库驱动
 ├── out/                                      # 编译输出目录（运行build.sh后生成）
@@ -395,8 +448,10 @@ javaStudy/
 8. ThreadDemo.java 运行时间较长（约30秒），因为包含多线程同步演示
 9. JVMDemo.java 会触发垃圾回收，可以观察内存变化
 10. **DatabaseDemo.java 使用H2内存数据库**，无需安装MySQL
-11. H2数据库jar包（lib/h2.jar）已包含在项目中
-12. 建议按照学习路线图的顺序学习，循序渐进
+11. **MySQLBasicsDemo.java 重点讲解SQL能力和表设计**，是数据库学习的核心
+12. H2数据库jar包（lib/h2.jar）已包含在项目中
+13. 建议按照学习路线图的顺序学习，循序渐进
+14. **数据库部分重点**：SQL能力 > 表设计 > MyBatis > JDBC
 
 ## 🔥 下一步学习方向
 
