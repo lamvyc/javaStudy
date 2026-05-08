@@ -26,7 +26,7 @@ public class DatabaseDemo {
         Connection conn = null;
         
         try {
-            // 1. 加载数据库驱动
+            // 1. 加载数据库驱动 =》简单理解：告诉 Java 程序"我要用 H2 数据库"，需要先把驱动加载进来。
             Class.forName("org.h2.Driver");
             info("H2数据库驱动加载成功");
             
@@ -142,6 +142,14 @@ public class DatabaseDemo {
             "  FOREIGN KEY (course_id) REFERENCES courses(id)" +
             ")"
         );
+
+        /*
+        * 小鸡:
+        * 外键约束是确保数据参照完整性的规则，它通过插入限制防止子表引用不存在的父表数据（脏数据），
+        * 并通过删除限制防止父表误删被子表引用的记录（级联保护），
+        * 其核心语法为：FOREIGN KEY (子表字段) REFERENCES 父表名(父表主键)。
+        *
+         * */
         
         println("✓ 表创建成功：students, classes, courses, enrollments");
         
